@@ -1,285 +1,161 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide',
- 	once: true
- });
+/* ===================================================================
+ * Count - Main JS
+ *
+ * ------------------------------------------------------------------- */
 
-jQuery(document).ready(function($) {
+(function($) {
 
-	"use strict";
+    "use strict";
+    
+    var cfg = {
+        scrollDuration : 800, // smoothscroll duration
+        mailChimpURL   : 'https://facebook.us8.list-manage.com/subscribe/post?u=cdb7b577e41181934ed6a6a44&amp;id=e6957d85dc'   // mailchimp url
+    },
 
-	
+    $WIN = $(window);
 
-	var siteMenuClone = function() {
+    // Add the User Agent to the <html>
+    // will be used for IE10 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0))
+    var doc = document.documentElement;
+    doc.setAttribute('data-useragent', navigator.userAgent);
 
-		$('.js-clone-nav').each(function() {
-			var $this = $(this);
-			$this.clone().attr('class', 'site-nav-wrap').appendTo('.site-mobile-menu-body');
-		});
+    // svg fallback
+    if (!Modernizr.svg) {
+        $(".home-logo img").attr("src", "images/logo.png");
+    }
 
 
-		setTimeout(function() {
-			
-			var counter = 0;
-      $('.site-mobile-menu .has-children').each(function(){
-        var $this = $(this);
+   /* Preloader
+    * -------------------------------------------------- */
+    var ssPreloader = function() {
         
-        $this.prepend('<span class="arrow-collapse collapsed">');
+        $("html").addClass('ss-preload');
 
-        $this.find('.arrow-collapse').attr({
-          'data-toggle' : 'collapse',
-          'data-target' : '#collapseItem' + counter,
+        $WIN.on('load', function() {
+
+            // will first fade out the loading animation 
+            $("#loader").fadeOut("slow", function() {
+                // will fade out the whole DIV that covers the website.
+                $("#preloader").delay(300).fadeOut("slow");
+            }); 
+            
+            // for hero content animations 
+            $("html").removeClass('ss-preload');
+            $("html").addClass('ss-loaded');
+        
+        });
+    };
+
+
+   /* info toggle
+    * ------------------------------------------------------ */
+    var ssInfoToggle = function() {
+
+        //open/close lateral navigation
+        $('.info-toggle').on('click', function(event) {
+
+            event.preventDefault();
+            $('body').toggleClass('info-is-visible');
+
         });
 
-        $this.find('> ul').attr({
-          'class' : 'collapse',
-          'id' : 'collapseItem' + counter,
+    };
+
+
+   /* slick slider
+    * ------------------------------------------------------ */
+    var ssSlickSlider = function() {
+        
+        $('.home-slider').slick({
+            arrows: false,
+            dots: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            fade: true,
+            speed: 3000
         });
 
-        counter++;
-
-      });
-
-    }, 1000);
-
-		$('body').on('click', '.arrow-collapse', function(e) {
-      var $this = $(this);
-      if ( $this.closest('li').find('.collapse').hasClass('show') ) {
-        $this.removeClass('active');
-      } else {
-        $this.addClass('active');
-      }
-      e.preventDefault();  
-      
-    });
-
-		$(window).resize(function() {
-			var $this = $(this),
-				w = $this.width();
-
-			if ( w > 768 ) {
-				if ( $('body').hasClass('offcanvas-menu') ) {
-					$('body').removeClass('offcanvas-menu');
-				}
-			}
-		})
-
-		$('body').on('click', '.js-menu-toggle', function(e) {
-			var $this = $(this);
-			e.preventDefault();
-
-			if ( $('body').hasClass('offcanvas-menu') ) {
-				$('body').removeClass('offcanvas-menu');
-				$this.removeClass('active');
-			} else {
-				$('body').addClass('offcanvas-menu');
-				$this.addClass('active');
-			}
-		}) 
-
-		// click outisde offcanvas
-		$(document).mouseup(function(e) {
-	    var container = $(".site-mobile-menu");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	      if ( $('body').hasClass('offcanvas-menu') ) {
-					$('body').removeClass('offcanvas-menu');
-				}
-	    }
-		});
-	}; 
-	siteMenuClone();
+    };
 
 
-	var sitePlusMinus = function() {
-		$('.js-btn-minus').on('click', function(e){
-			e.preventDefault();
-			if ( $(this).closest('.input-group').find('.form-control').val() != 0  ) {
-				$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) - 1);
-			} else {
-				$(this).closest('.input-group').find('.form-control').val(parseInt(0));
-			}
-		});
-		$('.js-btn-plus').on('click', function(e){
-			e.preventDefault();
-			$(this).closest('.input-group').find('.form-control').val(parseInt($(this).closest('.input-group').find('.form-control').val()) + 1);
-		});
-	};
-	// sitePlusMinus();
+   /* placeholder plugin settings
+    * ------------------------------------------------------ */
+    var ssPlaceholder = function() {
+        $('input, textarea, select').placeholder();
+    };
 
 
-	var siteSliderRange = function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 100000,
-      values: [ 0, 15000 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-	};
-	siteSliderRange();
+   /* final countdown
+    * ------------------------------------------------------ */
+    var ssFinalCountdown = function() {
+
+        var finalDate =  new Date("July 14, 2025 07:00:00").getTime();
+        //-date: "Mar 25 2021",
+
+        $('.home-content__clock').countdown(finalDate)
+        .on('update.countdown finish.countdown', function(event) {
+
+            var str = '<div class=\"top\"><div class=\"time days\">' +
+                      '%D <span>day%!D</span>' + 
+                      '</div></div>' +
+                      '<div class=\"time hours\">' +
+                      '%H <span>H</span></div>' +
+                      '<div class=\"time minutes\">' +
+                      '%M <span>M</span></div>' +
+                      '<div class=\"time seconds\">' +
+                      '%S <span>S</span></div>';
+
+            $(this)
+            .html(event.strftime(str));
+
+        });
+    };
 
 
-	
-	var siteCarousel = function () {
-		if ( $('.nonloop-block-13').length > 0 ) {
-			$('.nonloop-block-13').owlCarousel({
-		    center: false,
-		    items: 1,
-		    loop: true,
-				stagePadding: 0,
-		    margin: 30,
-		    autoplay: true,
-		    nav: false,
-		    responsive:{
-	        600:{
-	        	margin: 30,
-	        	
-	          items: 2
-	        },
-	        1000:{
-	        	margin: 30,
-	        	stagePadding: 0,
-	        	
-	          items: 3
-	        },
-	        1200:{
-	        	margin: 30,
-	        	stagePadding: 0,
-	        	
-	          items: 4
-	        }
-		    }
-			});
-		}
+   /* AjaxChimp
+    * ------------------------------------------------------ */
+    var ssAjaxChimp = function() {
+        
+        $('#mc-form').ajaxChimp({
+            language: 'es',
+            url: cfg.mailChimpURL
+        });
 
-		$('.slide-one-item, .with-dots').owlCarousel({
-	    center: false,
-	    items: 1,
-	    loop: true,
-			stagePadding: 0,
-	    margin: 0,
-	    autoplay: true,
-	    pauseOnHover: false,
-	    nav: false,
-	    dots: true,
-	    navText: ['<span class="icon-keyboard_arrow_left">', '<span class="icon-keyboard_arrow_right">']
-	  });
+        // Mailchimp translation
+        //
+        //  Defaults:
+        //	 'submit': 'Submitting...',
+        //  0: 'We have sent you a confirmation email',
+        //  1: 'Please enter a value',
+        //  2: 'An email address must contain a single @',
+        //  3: 'The domain portion of the email address is invalid (the portion after the @: )',
+        //  4: 'The username portion of the email address is invalid (the portion before the @: )',
+        //  5: 'This email address looks fake or invalid. Please enter a real email address'
 
-	  $('.slide-one-item-alt').owlCarousel({
-	    center: false,
-	    items: 1,
-	    loop: true,
-			stagePadding: 0,
-			smartSpeed: 700,
-	    margin: 0,
-	    autoplay: true,
-	    pauseOnHover: false,
-
-	  });
-
-	  
-	  
-	  $('.custom-prev1').click(function(e) {
-	  	e.preventDefault();
-	  	$('.nonloop-block-13').trigger('prev.owl.carousel');
-	  });
-	  $('.custom-next1').click(function(e) {
-	  	e.preventDefault();
-	  	$('.nonloop-block-13').trigger('next.owl.carousel');
-	  });
+        $.ajaxChimp.translations.es = {
+            'submit': 'Submitting...',
+            0: '<i class="fas fa-check"></i> We have sent you a confirmation email',
+            1: '<i class="fas fa-exclamation-triangle"></i> You must enter a valid e-mail address.',
+            2: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+            3: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+            4: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.',
+            5: '<i class="fas fa-exclamation-triangle"></i> E-mail address is not valid.'
+        }
+    };
 
 
-	  $('.custom-next').click(function(e) {
-	  	e.preventDefault();
-	  	$('.slide-one-item-alt').trigger('next.owl.carousel');
-	  });
-	  $('.custom-prev').click(function(e) {
-	  	e.preventDefault();
-	  	$('.slide-one-item-alt').trigger('prev.owl.carousel');
-	  });
-	  
-	};
-	siteCarousel();
+   /* initialize
+    * ------------------------------------------------------ */
+    (function ssInit() {
+        
+        ssPreloader();
+        ssInfoToggle();
+        ssSlickSlider();
+        ssPlaceholder();
+        ssFinalCountdown();
+        ssAjaxChimp();
 
-	var siteStellar = function() {
-		$(window).stellar({
-	    responsive: false,
-	    parallaxBackgrounds: true,
-	    parallaxElements: true,
-	    horizontalScrolling: false,
-	    hideDistantElements: false,
-	    scrollProperty: 'scroll'
-	  });
-	};
-	siteStellar();
+    })();
 
-	var siteCountDown = function() {
 
-		$('#date-countdown').countdown('2020/10/10', function(event) {
-		  var $this = $(this).html(event.strftime(''
-		    + '<span class="countdown-block"><span class="label">%w</span> weeks </span>'
-		    + '<span class="countdown-block"><span class="label">%d</span> days </span>'
-		    + '<span class="countdown-block"><span class="label">%H</span> hr </span>'
-		    + '<span class="countdown-block"><span class="label">%M</span> min </span>'
-		    + '<span class="countdown-block"><span class="label">%S</span> sec</span>'));
-		});
-				
-	};
-	siteCountDown();
-
-	var siteDatePicker = function() {
-
-		if ( $('.datepicker').length > 0 ) {
-			$('.datepicker').datepicker();
-		}
-
-	};
-	siteDatePicker();
-
-	var siteSticky = function() {
-		$(".js-sticky-header").sticky({topSpacing:0});
-	};
-	siteSticky();
-
-	// navigation
-  var OnePageNavigation = function() {
-    var navToggler = $('.site-menu-toggle');
-   	$("body").on("click", ".main-menu li a[href^='#'], .smoothscroll[href^='#'], .site-mobile-menu .site-nav-wrap li a", function(e) {
-      e.preventDefault();
-
-      var hash = this.hash;
-
-      $('html, body').animate({
-        'scrollTop': $(hash).offset().top
-      }, 600, 'easeInOutCirc', function(){
-        window.location.hash = hash;
-      });
-
-    });
-  };
-  OnePageNavigation();
-
-  var siteScroll = function() {
-
-  	
-
-  	$(window).scroll(function() {
-
-  		var st = $(this).scrollTop();
-
-  		if (st > 100) {
-  			$('.js-sticky-header').addClass('shrink');
-  		} else {
-  			$('.js-sticky-header').removeClass('shrink');
-  		}
-
-  	}) 
-
-  };
-  siteScroll();
-
-});
+})(jQuery);
