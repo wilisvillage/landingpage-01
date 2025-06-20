@@ -19,10 +19,13 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
 
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/flaticon.css">
 
     <link rel="stylesheet" href="css/aos.css">
 
     <link rel="stylesheet" href="css/style.css">
+
+    
     
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -45,7 +48,7 @@
         <div class="row align-items-center">
           
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo m-0 p-0"><a href="index.html" class="mb-0">Wilis.</a></h1>
+            <img id="logo-wilis" class="mb-0 site-logo m-0 p-0" style="width: auto; height:5vh" src="images/logowiliswhite.png"></img>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -72,7 +75,7 @@
 
   
     
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade" id="home-section">
+    <div class="site-blocks-cover overlay" style="background-image: url(images/cover.jpg);" data-aos="fade" id="home-section">
 
 
       <div class="container">
@@ -124,90 +127,205 @@
       </div>  
     </div>
 
-    <div class="site-section" id="properties-section">
+    <div class="site-section" >
+
       <div class="container">
+
         <div class="row mb-5 align-items-center">
-          <div class="col-md-7 text-left">
-            <h2 class="section-title mb-3">Properties</h2>
-          </div>
-          <div class="col-md-5 text-left text-md-right">
-            <div class="custom-nav1">
-              <a href="#" class="custom-prev1">Previous</a><span class="mx-3">/</span><a href="#" class="custom-next1">Next</a>
-            </div>
+          <div class="col-md text-center" data-aos="fade-up">
+            <h2 class="section-title mb-3">Featured Apartments</h2>
+            <p class = "">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, fugit nam obcaecati fuga itaque deserunt officia, error reiciendis ab quod?</p>
           </div>
         </div>
+        
+        <div class="site-block-retro d-block d-md-flex">
 
-        <div class="owl-carousel nonloop-block-13 mb-5">
-
-          <div class="property">
-            <a href="property-single.html">
-              <img src="images/property_1.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="prop-details p-3">
-              <div><strong class="price">$3,400,000</strong></div>
-              <div class="mb-2 d-flex justify-content-between">
-                <span class="w border-r">6 beds</span> 
-                <span class="w border-r">4 baths</span>
-                <span class="w">4,250 sqft.</span>
-              </div>
-              <div>480 12th, Unit 14, San Francisco, CA</div>
+          <a href="#" class="col1 unit-9 no-height" data-aos="fade-up" data-aos-delay="100">
+            <div class="image" style="background-image: url('images/img_2.jpg');"></div>
+            <div class="unit-9-content">
+              <h2>Baltimore Apartment</h2>
+              <span>$600/night</span>
             </div>
-          </div>
+          </a>
 
-          <div class="property">
-            <a href="property-single.html">
-              <img src="images/property_2.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="prop-details p-3">
-              <div><strong class="price">$3,400,000</strong></div>
-              <div class="mb-2 d-flex justify-content-between">
-                <span class="w border-r">6 beds</span> 
-                <span class="w border-r">4 baths</span>
-                <span class="w">4,250 sqft.</span>
-              </div>
-              <div>480 12th, Unit 14, San Francisco, CA</div>
-            </div>
-          </div>
+          <div class="col2 ml-auto">
 
-          <div class="property">
-            <a href="property-single.html">
-              <img src="images/property_3.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="prop-details p-3">
-              <div><strong class="price">$3,400,000</strong></div>
-              <div class="mb-2 d-flex justify-content-between">
-                <span class="w border-r">6 beds</span> 
-                <span class="w border-r">4 baths</span>
-                <span class="w">4,250 sqft.</span>
+            <a href="#" class="col2-row1 unit-9 no-height" data-aos="fade-up" data-aos-delay="200">
+              <div class="image" style="background-image: url('images/img_3.jpg');"></div>
+              <div class="unit-9-content">
+                <h2>Austin Apartment</h2>
+                <span>$290/night</span>
               </div>
-              <div>480 12th, Unit 14, San Francisco, CA</div>
-            </div>
-          </div>
+            </a>
 
-          <div class="property">
-            <a href="property-single.html">
-              <img src="images/property_4.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="prop-details p-3">
-              <div><strong class="price">$3,400,000</strong></div>
-              <div class="mb-2 d-flex justify-content-between">
-                <span class="w border-r">6 beds</span> 
-                <span class="w border-r">4 baths</span>
-                <span class="w">4,250 sqft.</span>
+            <a href="#" class="col2-row2 unit-9 no-height" data-aos="fade-up" data-aos-delay="300">
+              <div class="image" style="background-image: url('images/img_1.jpg');"></div>
+              <div class="unit-9-content">
+                <h2>Atlanta Apartment</h2>
+                <span>$1,290/night</span>
               </div>
-              <div>480 12th, Unit 14, San Francisco, CA</div>
-            </div>
+            </a>
+
           </div>
 
         </div>
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <a href="listings.html" class="btn btn-primary btn-block">View All Property Listings</a>
-          </div>
-        </div>
+        
       </div>
     </div>
 
+        
+    <section class="ftco-section ftco-properties" id="properties-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="section-title mb-4">Our Property</h2>
+          </div>
+        </div>
+    		<div class="row">
+        	<div class="col-md-12">
+            <div class="carousel-properties owl-carousel">
+            	<div class="item">
+            		<div class="properties ftco-animate">
+		    					<div class="img">
+				    				<img src="images/work-1.jpg" class="img-fluid" alt="Colorlib Template">
+			    				</div>
+			    				<div class="desc">
+			    					<div class="text bg-primary d-flex text-center align-items-center justify-content-center">
+				    					<span>Sale</span>
+				    				</div>
+			    					<div class="d-flex pt-5">
+				    					<div>
+					    					<h3><a href="properties.html">Fatima Subdivision</a></h3>
+											</div>
+											<div class="pl-md-4">
+												<h4 class="price">$120,000</h4>
+											</div>
+										</div>
+										<p class="h-info"><span class="location">New York</span></p> 
+                      <ul class="property-list">
+                        <li><span class="flaticon-bed"></span> 3 KT</li>
+                        <li><span class="flaticon-bathtub"></span> 2 KM</li>
+                        <li><span class="flaticon-floor-plan"></span>60 m<sup>2</sup></li>
+                      </ul>
+			    				</div>
+		    				</div>
+            	</div>
+            	<div class="item">
+            		<div class="properties ftco-animate">
+		    					<div class="img">
+				    				<img src="images/work-2.jpg" class="img-fluid" alt="Colorlib Template">
+			    				</div>
+			    				<div class="desc">
+			    					<div class="text bg-secondary d-flex text-center align-items-center justify-content-center">
+				    					<span>Rent</span>
+				    				</div>
+			    					<div class="d-flex pt-5">
+				    					<div>
+					    					<h3><a href="properties.html">Fatima Subdivision</a></h3>
+											</div>
+											<div class="pl-md-4">
+												<h4 class="price">$120<span>/mo</span></h4>
+											</div>
+										</div>
+										<p class="h-info"><span class="location">New York</span> <ul class="property-list">
+                      <li><span class="flaticon-bed"></span> 3 KT</li>
+                      <li><span class="flaticon-bathtub"></span> 2 KM</li>
+                      <li><span class="flaticon-floor-plan"></span>60 m<sup>2</sup></li>
+                    </ul>
+			    				</div>
+		    				</div>
+            	</div>
+            	<div class="item">
+            		<div class="properties ftco-animate">
+		    					<div class="img">
+				    				<img src="images/work-3.jpg" class="img-fluid" alt="Colorlib Template">
+			    				</div>
+			    				<div class="desc">
+			    					<div class="text bg-primary d-flex text-center align-items-center justify-content-center">
+				    					<span>Sale</span>
+				    				</div>
+			    					<div class="d-flex pt-5">
+				    					<div>
+					    					<h3><a href="properties.html">Fatima Subdivision</a></h3>
+											</div>
+											<div class="pl-md-4">
+												<h4 class="price">$230,000</h4>
+											</div>
+										</div>
+										<p class="h-info"><span class="location">New York</span> <ul class="property-list">
+                        <li><span class="flaticon-bed"></span> 3 KT</li>
+                        <li><span class="flaticon-bathtub"></span> 2 KM</li>
+                        <li><span class="flaticon-floor-plan"></span>60 m<sup>2</sup></li>
+                      </ul>
+			    				</div>
+		    				</div>
+            	</div>
+            	<div class="item">
+            		<div class="properties ftco-animate">
+		    					<div class="img">
+				    				<img src="images/work-4.jpg" class="img-fluid" alt="Colorlib Template">
+			    				</div>
+			    				<div class="desc">
+			    					<div class="text bg-primary d-flex text-center align-items-center justify-content-center">
+				    					<span>Sale</span>
+				    				</div>
+			    					<div class="d-flex pt-5">
+				    					<div>
+					    					<h3><a href="properties.html">Fatima Subdivision</a></h3>
+											</div>
+											<div class="pl-md-4">
+												<h4 class="price">$120,000</h4>
+											</div>
+										</div>
+										<p class="h-info"><span class="location">New York</span> <ul class="property-list">
+                        <li><span class="flaticon-bed"></span> 3 KT</li>
+                        <li><span class="flaticon-bathtub"></span> 2 KM</li>
+                        <li><span class="flaticon-floor-plan"></span>60 m<sup>2</sup></li>
+                      </ul>
+			    				</div>
+		    				</div>
+            	</div>
+            	<div class="item">
+            		<div class="properties ftco-animate">
+		    					<div class="img">
+				    				<img src="images/work-5.jpg" class="img-fluid" alt="Colorlib Template">
+			    				</div>
+			    				<div class="desc">
+			    					<div class="text bg-secondary d-flex text-center align-items-center justify-content-center">
+				    					<span>Rent</span>
+				    				</div>
+			    					<div class="d-flex pt-5">
+				    					<div>
+					    					<h3><a href="properties.html">Fatima Subdivision</a></h3>
+											</div>
+											<div class="pl-md-4">
+												<h4 class="price">$50<span>/mo</span></h4>
+											</div>
+										</div>
+										<p class="h-info"><span class="location">New York</span> <ul class="property-list">
+                        <li><span class="flaticon-bed"></span> 3 KT</li>
+                        <li><span class="flaticon-bathtub"></span> 2 KM</li>
+                        <li><span class="flaticon-floor-plan"></span>60 m<sup>2</sup></li>
+                      </ul>
+			    				</div>
+		    				</div>
+            	</div>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-intro img" id="hotel-section" style="background-image: url(images/bg_4.jpg); min-height:80vh;">
+			<div class="overlay"></div>
+			<div class="container h-100">
+        <div class="row justify-content-end align-items-center h-100">
+          <div class="col-md-7 ftco-head text-white">
+            <h2 class="mb-4">Choose Your House for Only 1,2 M</h2>
+            <p>Far far away, behind the word mountains... Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum Lorem ipsum Lorem ipsumLorem ipsum</p>
+          </div>
+        </div>
+		</section>
     
     <section class="site-section border-bottom" id="agents-section">
       <div class="container">
@@ -374,80 +492,7 @@
 
     
 
-    <section class="site-section border-bottom bg-light" id="services-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Services</h2>
-          </div>
-        </div>
-        <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-house"></span></div>
-              <div>
-                <h3>Search Property</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-coin"></span></div>
-              <div>
-                <h3>Buy Property</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-home"></span></div>
-              <div>
-                <h3>Invest a Home</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-flat"></span></div>
-              <div>
-                <h3>Post Properties</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-location"></span></div>
-              <div>
-                <h3>Property Locator</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary flaticon-mobile-phone"></span></div>
-              <div>
-                <h3>Stated Apps</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    
 
     <section class="site-section testimonial-wrap" id="testimonials-section">
       <div class="container">
@@ -555,23 +600,48 @@
     </section>
 
    
-
+    <section class="site-section border-bottom bg-light" id="services-section">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2637.776332154919!2d112.5249055698867!3d-7.874246453327374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880cd0ebf4381%3A0xb9ce29467fc5f2ec!2sJl.%20Kapten%20Ibnu%2C%20Sisir%2C%20Kec.%20Batu%2C%20Kota%20Batu%2C%20Jawa%20Timur%2065314%2C%20Indonesia!5e0!3m2!1sid!2snl!4v1750420941367!5m2!1sid!2snl" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
     <section class="site-section bg-light bg-image" id="contact-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
             <!-- <h3 class="section-sub-title">Get</h3> -->
-            <h2 class="section-title mb-3">Contct Us</h2>
+            <h2 class="section-title mb-3">Contact Us</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-md-7 mb-5">
 
+            <form id="whatsapp-form" class="p-5 bg-white">
+            <h2 class="h4 text-black mb-5">Contact Form</h2> 
+            <div class="row form-group">
+              <div class="col-md-12 mb-3 mb-md-0">
+              <label for="name" class="text-black">Nama Lengkap</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+            </div>
             
+            <div class="row form-group">
+              <div class="col-md-12">
+              <label for="message" class="text-black">Pesan</label><br>
+              <textarea id="message" name="message" cols="30" rows="7" class="form-control" placeholder="  Saya tertarik dengan produk anda..." required></textarea>
+              </div>
+            </div>
+            
+              <button type="submit" class="btn btn-primary btn-md text-white" >Kirim via WhatsApp</button>
+            </form>
+            
+           
 
-            <form action="#" class="p-5 bg-white">
+            <!-- <form action="#" class="p-5 bg-white">
               
+
+                  <label class="text-black" for="message">Message</label> 
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+
               <h2 class="h4 text-black mb-5">Contact Form</h2> 
 
               <div class="row form-group">
@@ -615,7 +685,7 @@
               </div>
 
   
-            </form>
+            </form> -->
           </div>
           <div class="col-md-5">
             
@@ -715,6 +785,27 @@
 
   
   <script src="js/main.js"></script>
-    
+  <script>
+    document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      // Ambil nilai form
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+  
+      // Nomor WhatsApp tujuan (gunakan format internasional tanpa tanda + atau 0 di awal)
+      const phoneNumber = '6281293403663';
+  
+      // Format pesan WhatsApp
+      const urlMessage = `Halo, saya ${encodeURIComponent(name)}. ${encodeURIComponent(message)}`;
+      
+      // Buat URL WhatsApp Web
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${urlMessage}`;
+  
+      // Buka di tab baru
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+
   </body>
 </html>
